@@ -26,22 +26,22 @@ const Footer = () => {
                     esse cillum dolore eu fugiat nulla pariatur.
                 </div>
                 <div className="socialIcons">
-                    <Link to="https://www.instagram.com/jaymishra567/">
+                    <Link to="https://www.instagram.com/jaymishra567/" target="_blank">
                         <span className="icon">
                             <FaInstagram />
                         </span>
                     </Link>
-                    <Link to="https://twitter.com/Jaydotme?t=ED4Hf6sDQsSl9Rlq0I6qWw&s=08">
+                    <Link to="https://twitter.com/Jaydotme?t=ED4Hf6sDQsSl9Rlq0I6qWw&s=08" target="_blank">
                         <span className="icon">
                             <FaTwitter />
                         </span>
                     </Link>
-                    <Link to="https://github.com/Vancey567">
+                    <Link to="https://github.com/Vancey567" target="_blank">
                         <span className="icon">
                             <FaGithub />
                         </span>
                     </Link>
-                    <Link to="https://linkedin.com/in/jay-mishra-4a15b01a9">
+                    <Link to="https://linkedin.com/in/jay-mishra-4a15b01a9" target="_blank">
                         <span className="icon">
                             <FaLinkedin />
                         </span>

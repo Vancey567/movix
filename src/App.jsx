@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchDataFromApi } from './utils/api';
-import { getApiConfiguration } from './store/homeSlice';
+import { getApiConfiguration, getGenres } from './store/homeSlice';
 
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
@@ -17,13 +17,37 @@ function App() {
   const {url} = useSelector((state) => state.home)
 
   useEffect(() => {
-    const test = async () => {
-      const data = await fetchDataFromApi('/movie/popular')
-      console.log(data);
-      dispatch(getApiConfiguration(data));
+    const fetchApiConfig = async () => {
+      // const data = await fetchDataFromApi('/movie/popular')
+      const data = await fetchDataFromApi('/configuration')
+      
+      const url = {
+        backdrop: data.images.secure_base_url + "original",
+        poster: data.images.secure_base_url + "original",
+        profile: data.images.secure_base_url + "original",
+      }
+
+      dispatch(getApiConfiguration(url));
     }
-    test();
+    fetchApiConfig();
+    genresCall();
   }, [])
+
+  const genresCall = async () => {
+    let promises = [];
+    let endPoints = ["tv", "movie"];
+    let allGenres = {}
+
+    endPoints.forEach((url) => {
+      promises.push(fetchDataFromApi(`/genre/${url}/list`))
+    })
+
+    const data = await Promise.all(promises); // it will return the res of both the promises at once, dono ka response sath me return karega promise.all
+    data.map(({genres}) => {
+      return genres.map((item) => (allGenres[item.id] = item));
+    })
+    dispatch(getGenres(allGenres));
+  }
 
   return (
     <div className="App">

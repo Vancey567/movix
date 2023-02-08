@@ -1,5 +1,6 @@
 import React from "react";
-import {FaFacebookF,FaInstagram,FaTwitter,FaLinkedin} from "react-icons/fa";
+import {FaGithub,FaInstagram,FaTwitter,FaLinkedin} from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 
@@ -25,18 +26,26 @@ const Footer = () => {
                     esse cillum dolore eu fugiat nulla pariatur.
                 </div>
                 <div className="socialIcons">
-                    <span className="icon">
-                        <FaFacebookF />
-                    </span>
-                    <span className="icon">
-                        <FaInstagram />
-                    </span>
-                    <span className="icon">
-                        <FaTwitter />
-                    </span>
-                    <span className="icon">
-                        <FaLinkedin />
-                    </span>
+                    <Link to="https://www.instagram.com/jaymishra567/">
+                        <span className="icon">
+                            <FaInstagram />
+                        </span>
+                    </Link>
+                    <Link to="https://twitter.com/Jaydotme?t=ED4Hf6sDQsSl9Rlq0I6qWw&s=08">
+                        <span className="icon">
+                            <FaTwitter />
+                        </span>
+                    </Link>
+                    <Link to="https://github.com/Vancey567">
+                        <span className="icon">
+                            <FaGithub />
+                        </span>
+                    </Link>
+                    <Link to="https://linkedin.com/in/jay-mishra-4a15b01a9">
+                        <span className="icon">
+                            <FaLinkedin />
+                        </span>
+                    </Link>
                 </div>
             </ContentWrapper>
         </footer>
